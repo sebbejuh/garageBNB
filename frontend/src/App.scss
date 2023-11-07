@@ -1,0 +1,31 @@
+@import './assets/navbar';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  height: 100dvh;
+}
+
+#root {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(226, 226, 226);
+  min-height: 100%;
+  padding-top: 4.5rem;
+}
