@@ -1,4 +1,6 @@
 @import './assets/navbar';
+@import './assets/footer';
+@import './assets/mobileNav';
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
@@ -27,7 +29,7 @@ body {
   justify-content: center;
   background-color: rgb(226, 226, 226);
   min-height: 100%;
-  padding-top: 4.5rem;
+  padding-top: 95px;
 }
 a {
   text-decoration: none;

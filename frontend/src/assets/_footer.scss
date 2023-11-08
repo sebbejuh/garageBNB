@@ -1,0 +1,43 @@
+.footer {
+  height: 55px;
+  border-top: 2px solid #b0afafb3;
+  z-index: 999;
+  background-color: white;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  padding-top: 13.5px;
+}
+
+.footer-sticky {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-parking,
+.footer-my-parking,
+.footer-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    margin-right: 5px;
+  }
+  a {
+    font-size: 12px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 722px) {
+  .footer{
+    display: none;
+  }
+}

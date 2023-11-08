@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 //Components
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import MobileNav from "./components/MobileNav";
 //Views
 import Home from "./views/Home";
 import Car from "./views/Car";
@@ -21,6 +23,7 @@ const App = () => {
   return (
       <BrowserRouter>
         <Navbar />
+        <MobileNav />
         <main className="container">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -35,6 +38,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        <Footer />
       </BrowserRouter>
   )
 }

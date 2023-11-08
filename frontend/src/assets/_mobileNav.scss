@@ -1,0 +1,38 @@
+.mobile-navlinks{
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  z-index: 999;
+  position: fixed;
+  top: 50px;
+  width: 100%;
+}
+.mobile-navlinks-car{
+  display: flex;
+  background-color: #4470B2;
+  color: white;
+  width: 50vw;
+  align-items: center;
+  padding-left: 10px;
+  span{
+    color: white;
+    padding-left: 35%;
+  }
+}
+.mobile-navlinks-mc{
+  display: flex;
+  background-color: #E37575;
+  width: 50vw;
+  align-items: center;
+  justify-content: right;
+  padding-right: 10px;
+  span{
+    padding-right: 35%;
+  }
+}
+
+@media screen and (min-width: 722px) {
+  .mobile-navlinks{
+    display: none;
+  }
+}

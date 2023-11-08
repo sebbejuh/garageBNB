@@ -10,25 +10,25 @@ const Navbar = () => {
       <nav className="navbar-links">
         <div className="navbar-group-left">
           <div className='navbar-logo'>
-            <BiCar size={28}/>
+            <BiCar size={28} />
             <Link to='/'>GarageBNB</Link>
           </div>
           <div className='navbar-parking'>
-            <LuParkingSquare size={28}/>
+            <LuParkingSquare size={28} />
             <Link to='/'>Parkering</Link>
           </div>
         </div>
         <div className='navbar-search'>
-          <AiOutlineSearch size={28}/>
+          <AiOutlineSearch size={28} />
           <input placeholder='Stockholm...' type="text" />
         </div>
         <div className="navbar-group-right">
           <div className='navbar-my-parking'>
-            <LuParkingSquare size={28}/>
+            <LuParkingSquare size={28} />
             <Link to='/bookings'>Mina Parkeringar</Link>
           </div>
           <div className='navbar-login'>
-            <AiOutlineUser size={28}/>
+            <AiOutlineUser size={28} />
             <Link to='/login'>Logga in</Link>
           </div>
         </div>
