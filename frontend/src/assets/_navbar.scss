@@ -1,0 +1,63 @@
+// DESKTOP START
+.navbar{
+  height: 55px;
+  border-bottom: 2px solid #b0afafb3;
+  z-index: 999;
+  background-color: white;
+  .navbar-links{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    padding-top: 9px;
+  }
+}
+.navbar-group-left, .navbar-group-right{
+  display: flex;
+  gap: 15px
+}
+.navbar-logo, .navbar-parking, .navbar-search, .navbar-my-parking, .navbar-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg{
+    margin-right: 5px;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+}
+.navbar-logo a:hover{
+  text-decoration: none;}
+.navbar-logo a{
+  font-size: larger;
+}
+.navbar-parking, .navbar-search, .navbar-my-parking, .navbar-login{
+  a, input{
+    font-size: 0.8rem;
+  }
+}
+.navbar-search{
+  border: 2px solid #b0afafb3;
+  border-radius: 10px;
+  width: 20%;
+  display: flex;
+  justify-content:left;
+  padding: 3px 0;
+  padding-left: 10px;
+  input{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+    margin-left: 8px;
+  }
+  input:focus{
+    outline: none;
+  }
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+// DESKTOP END
