@@ -1,0 +1,28 @@
+.home-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-listing{
+  display: flex;
+  justify-content: center;
+  width: 20vw;
+  border: 2px solid #000000;
+}
+.listing-left{
+  width: 10vw;
+  img{
+    width: 50%;
+  }
+}
+.listing-right{
+  width: 10vw;
+}
+.listing-btn-container{
+  margin-top: 10%;
+  a{
+    background-color: #4470B2;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}

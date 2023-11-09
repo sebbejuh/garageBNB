@@ -1,0 +1,18 @@
+.details-container{
+  display: flex;
+}
+.details-left{
+  width: 40vw;
+  img{
+    width: 40vw;
+  }
+}
+.details-right{
+  width: 40vw;
+}
+.details-right-host{
+  img{
+    width: 10vw;
+    height: width;
+  }
+}
