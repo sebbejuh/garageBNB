@@ -1,8 +1,9 @@
+@import './assets/home';
+@import './assets/details';
 @import './assets/navbar';
 @import './assets/footer';
 @import './assets/mobileNav';
-@import './assets/home';
-@import './assets/details';
+@import './assets/desktopNav';
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
@@ -29,11 +30,37 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(255, 255, 255);
   min-height: 100%;
   padding-top: 95px;
 }
 a {
   text-decoration: none;
   color: black;
+}
+//outer container on pages with listings
+.outer-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+//colours
+.car-color{
+  color: #4470B2;
+}
+.car-bcolor{
+  background-color: #4470B2;
+}
+.car-bcolor-tran{
+  background-color: #4470b2b2;
+}
+.mc-color{
+  color: #E37575;
+}
+.mc-bcolor{
+  background-color: #E37575;
+}
+.mc-bcolor-tran{
+  background-color: #e37575b2;
 }
