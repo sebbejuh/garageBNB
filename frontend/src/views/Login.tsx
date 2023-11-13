@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-title">
-        <h1>Logga in</h1>
+        <h1>LOGGA IN</h1>
       </div>
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="login-input">
@@ -70,7 +70,7 @@ const Login = () => {
           />
         </div>
         <Link to="/register" className="register-link">Registrera dig</Link>
-        <button className="login-btn">Submit</button>
+        <button className="login-btn">Logga in</button>
       </form>
     </div>
   )
