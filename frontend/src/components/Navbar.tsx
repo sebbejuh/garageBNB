@@ -9,31 +9,12 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const authContext = useContext(AuthContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
     if (authContext !== null) {
-      const { token, updateToken } = authContext;
+      const { token } = authContext;
       setIsLoggedIn(!!token);
-
-      const fetchUserData = async () => {
-        try {
-          const res = await fetch("http://localhost:7777/api/users/me", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          const data = await res.json();
-          if (data) {
-            setUser(data);
-          }
-        } catch (error) {
-          console.log("Error fetching user data:", error);
-        }
-      };
-
-      fetchUserData();
     }
   }, [authContext]);
 

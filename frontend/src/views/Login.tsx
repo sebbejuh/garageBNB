@@ -50,7 +50,7 @@ const Login = () => {
         <div className="login-input">
           <label htmlFor="email">E-post:</label>
           <input
-            type="text"
+            type="email"
             placeholder="E-post.."
             name="email"
             id="email"
