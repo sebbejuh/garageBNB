@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import MobileNav from "./components/MobileNav";
+//Auth
+import { AuthProvider } from "./context/AuthContext";
 //Views
 import Home from "./views/Home";
 import Car from "./views/Car";
@@ -21,7 +23,8 @@ import "./App.scss";
 
 const App = () => {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <Navbar />
         <MobileNav />
         <main className="container">
@@ -39,7 +42,8 @@ const App = () => {
           </Routes>
         </main>
         <Footer />
-      </BrowserRouter>
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
 

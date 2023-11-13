@@ -2,9 +2,48 @@ import { Link } from 'react-router-dom';
 import { LuParkingSquare } from "react-icons/lu";
 import { BiCar } from "react-icons/bi";
 import { AiOutlineUser, AiOutlineSearch } from "react-icons/ai";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const authContext = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (authContext !== null) {
+      const { token, updateToken } = authContext;
+      setIsLoggedIn(!!token);
+
+      const fetchUserData = async () => {
+        try {
+          const res = await fetch("http://localhost:7777/api/users/me", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          const data = await res.json();
+          if (data) {
+            setUser(data);
+          }
+        } catch (error) {
+          console.log("Error fetching user data:", error);
+        }
+      };
+
+      fetchUserData();
+    }
+  }, [authContext]);
+
+  const handleLogout = () => {
+    if (authContext !== null) {
+      const { updateToken } = authContext;
+      updateToken(null);
+      navigate("/");
+    }
+  };
   return (
     <header className='navbar sticky'>
       <nav className="navbar-links">
@@ -29,7 +68,11 @@ const Navbar = () => {
           </div>
           <div className='navbar-login'>
             <AiOutlineUser size={28} />
-            <Link to='/login'>Logga in</Link>
+            {isLoggedIn ? (
+              <div onClick={handleLogout}>Logga ut</div>
+            ) : (
+              <Link to='/login'>Logga in</Link>
+            )}
           </div>
         </div>
       </nav>

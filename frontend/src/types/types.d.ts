@@ -9,3 +9,10 @@ interface Listing {
   imageURL:     string;
   price:        number;
 }
+interface AuthProviderProps {
+  children: ReactNode;
+}
+interface AuthContextType {
+  token: string | null;
+  updateToken: (newToken: string | null) => void;
+}
