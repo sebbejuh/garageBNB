@@ -13,3 +13,15 @@ interface RequestWithUserData extends Request {
     email: string;
   };
 }
+
+interface Listing {
+  address: string;
+  category: string;
+  city: string;
+  description: string;
+  host: string;
+  hostImgURL: string;
+  imageURL: string;
+  price: number;
+  _id: string;
+}
