@@ -16,3 +16,8 @@ interface AuthContextType {
   token: string | null;
   updateToken: (newToken: string | null) => void;
 }
+interface Booking {
+  _id: string;
+  dates: [string];
+  listing: Listing;
+}

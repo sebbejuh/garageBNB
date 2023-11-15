@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { FaLocationPin } from "react-icons/fa6";
 
 const Bookings = () => {
-  const [bookings, setBookings] = useState([]);
+  const [bookings, setBookings] = useState<Booking[]>([]);
   const [error, setError] = useState(false);
   const authContext = useContext(AuthContext);
 
