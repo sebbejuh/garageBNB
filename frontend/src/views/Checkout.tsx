@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { FaLocationPin } from "react-icons/fa6";
 import { AuthContext } from "../context/AuthContext";
-
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const [listing, setListing] = useState<Listing>(); //using useState hook to create listing state variable as an array
@@ -10,7 +10,8 @@ const Checkout = () => {
   const listingData = localStorage.getItem('listingData');
   const parsedData = listingData !== null ? JSON.parse(listingData) : null;
   const authContext = useContext(AuthContext);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     if (parsedData !== null) {  //if parsedData isnt null
       const listingId = parsedData.listingId;
@@ -59,6 +60,7 @@ const Checkout = () => {
     .then(res => res.json())
     .then(data => {
       console.log('Success:', data);
+      navigate("/payment")
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -67,7 +69,7 @@ const Checkout = () => {
 
   return (
     <div className='checkout-container'>
-      <h1>Checkout (1)</h1>
+      <h1>Checkout</h1>
       <div className='checkout-card'>
         <div className="checkout-card-upper">
           <img src={listing.imageURL}></img>

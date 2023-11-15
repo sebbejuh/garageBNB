@@ -1,7 +1,7 @@
 
 const Payment = () => {
   return (
-    <div>Payment</div>
+    <div><h1>Betalning sker... Vänligen vänta.</h1></div>
   )
 }
 
