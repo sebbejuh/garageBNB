@@ -21,7 +21,6 @@
 
 .navbar-logo,
 .navbar-parking,
-.navbar-search,
 .navbar-my-parking,
 .navbar-login {
   display: flex;
@@ -46,37 +45,12 @@
 }
 
 .navbar-parking,
-.navbar-search,
 .navbar-my-parking,
 .navbar-login {
 
   a,
-  input,
   div {
     font-size: 0.8rem;
-  }
-}
-
-.navbar-search {
-  border: 2px solid #b0afafb3;
-  border-radius: 10px;
-  width: 30%;
-  min-width: 175px;
-  display: flex;
-  justify-content: left;
-  padding: 3px 0;
-  padding-left: 10px;
-
-  input {
-    background-color: transparent;
-    border: none;
-    height: 100%;
-    width: 100%;
-    margin-left: 8px;
-  }
-
-  input:focus {
-    outline: none;
   }
 }
 
@@ -101,15 +75,6 @@
       gap: 10px;
     }
 
-  }
-
-  .navbar-search {
-    min-width: none;
-    width: 60%;
-
-    input {
-      font-size: 12px;
-    }
   }
 
   .navbar-logo a {

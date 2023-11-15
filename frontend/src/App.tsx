@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import MobileNav from "./components/MobileNav";
+import SearchBar from "./components/SearchBar";
 //Auth
 import { AuthProvider } from "./context/AuthContext";
 //Views
@@ -25,7 +26,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Navbar />
+      <Navbar SearchBar={<SearchBar />} /> {/* passes component as a prop */}
         <MobileNav />
         <main className="container">
           <Routes>

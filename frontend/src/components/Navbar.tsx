@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { LuParkingSquare } from "react-icons/lu";
 import { BiCar } from "react-icons/bi";
-import { AiOutlineUser, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({SearchBar}: NavbarProps) => {
   const authContext = useContext(AuthContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -38,10 +38,7 @@ const Navbar = () => {
             <Link to='/'>Parkering</Link>
           </div>
         </div>
-        <div className='navbar-search'>
-          <AiOutlineSearch size={28} />
-          <input placeholder='Stockholm...' type="text" />
-        </div>
+        {SearchBar}
         <div className="navbar-group-right">
           <div className='navbar-my-parking'>
             <LuParkingSquare size={28} />

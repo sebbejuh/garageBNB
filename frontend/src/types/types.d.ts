@@ -21,3 +21,6 @@ interface Booking {
   dates: [string];
   listing: Listing;
 }
+interface NavbarProps {
+  SearchBar: React.ReactNode;
+}
