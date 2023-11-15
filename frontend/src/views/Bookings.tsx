@@ -36,7 +36,7 @@ const Bookings = () => {
   }, [authContext]);
 
   if (error) {  //if there is an error
-    return <div className='checkout-error'><h1>Du är inte inloggad</h1></div>
+    return <div className='error'><h1>Du är inte inloggad</h1></div>
   }
   console.log(bookings)
   const bookingsAmount = bookings.length;

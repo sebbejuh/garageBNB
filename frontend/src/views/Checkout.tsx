@@ -39,10 +39,10 @@ const Checkout = () => {
 
   }, [parsedData]);
   if (error) {  //if there is an error
-    return <div className='checkout-error'><h1>Ingen bokning (0)</h1></div>
+    return <div className='error'><h1>Ingen bokning (0)</h1></div>
   }
   if (!listing) {
-    return <div className='checkout-error'><h1>Laddar...</h1></div>
+    return <div className='error'><h1>Laddar...</h1></div>
   }
 
   const handleBooking = () => {
