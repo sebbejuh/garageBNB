@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { FaLocationPin } from "react-icons/fa6";
+import { FiMinusCircle } from "react-icons/fi";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +12,7 @@ const Checkout = () => {
   const parsedData = listingData !== null ? JSON.parse(listingData) : null;
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (parsedData !== null) {  //if parsedData isnt null
       const listingId = parsedData.listingId;
@@ -45,10 +46,13 @@ const Checkout = () => {
   }
 
   const handleBooking = () => {
-  if (!authContext) {
-    return
-  }
-  const token = authContext.token;
+    if (!authContext || !authContext.token) {
+      setError(true); //just incase
+      console.log('Error: not logged in')
+      navigate("/login")
+      return;
+    }
+    const token = authContext.token;
     fetch('http://localhost:7777/api/bookings', {
       method: 'POST',
       headers: {
@@ -57,15 +61,22 @@ const Checkout = () => {
       },
       body: listingData,
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log('Success:', data);
-      navigate("/payment")
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      .then(res => res.json())
+      .then(data => {
+        console.log('Success:', data);
+        navigate("/payment")
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
+
+  const removeBooking = () => {
+    if (parsedData) {
+      localStorage.removeItem('listingData');
+    }
+    return
+  }
 
   return (
     <div className='checkout-container'>
@@ -80,7 +91,7 @@ const Checkout = () => {
             <p className={listing.category === "MC" ? "mc-bcolor-tran" : "car-bcolor-tran"}>{listing.price}kr /dygn</p>
           </div>
           <div className="checkout-card-upper-upperright">
-
+            <button onClick={removeBooking}><FiMinusCircle /></button>
           </div>
         </div>
         <div className="checkout-card-lower">
@@ -89,7 +100,7 @@ const Checkout = () => {
         </div>
       </div>
       <div className="checkout-btn-container">
-      <button onClick={handleBooking}>Betala Nu (Totalt: {totalPrice}kr)</button>
+        <button onClick={handleBooking}>Betala Nu (Totalt: {totalPrice}kr)</button>
       </div>
     </div>
 
