@@ -1,0 +1,17 @@
+.go-back-btn-container{
+  height: 40px;
+  z-index: 900;
+  position: fixed;
+  top: 90px;
+  width: 100%;
+
+  .go-back-btn-fake-btn{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    svg{
+      font-size: 34px;
+    }
+  }
+}
+//mobile

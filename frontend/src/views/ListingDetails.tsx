@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
+import GoBackBtn from "../components/GoBackBtn"
+import { FaLocationPin } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa";
+
 
 const ListingDetails = () => {
 
@@ -10,7 +14,7 @@ const ListingDetails = () => {
 
   const navigate = useNavigate();
   const [selectedDays, setSelectedDays] = useState<number[]>([]); //state for selected/checked days
-  const daysOfWeek = ['Mon', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör', 'Sön']; //days of the week array
+  const daysOfWeek = ['Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör', 'Sön']; //days of the week array
 
   //function to keep track of checkbox changes
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
@@ -31,12 +35,12 @@ const ListingDetails = () => {
       date.setDate(date.getDate() + daysToAdd);
       return date.getTime() >= 0 ? date.toISOString().split('T')[0] : null; //check if valid date,else retun null
     }).filter(date => date !== null); //filter out null values from date array
-  
+
     const data = {
       dates,
       listingId
     };
-  
+
     localStorage.setItem('listingData', JSON.stringify(data));
     navigate("/checkout");
   };
@@ -65,38 +69,52 @@ const ListingDetails = () => {
   }
 
   return (
-    <div className="details-container">
-      <div className="details-left">
-        <img src={listing.imageURL}></img>
-        <p>{listing.city}</p>
-        <p>{listing.price}kr /dygn</p>
-      </div>
-      <div className="details-right">
-        <div className="details-checkboxes">
-        {daysOfWeek.map((day, index) => (
-        <div key={index}>
-          <input type="checkbox" id={`day-${index}`} name={`day-${index}`} onChange={(event) => handleCheckboxChange(event, index)} />
-          <label htmlFor={`day-${index}`}>{day}</label>
-        </div>
-      ))}
-        </div>
-        <div className="details-right-host">
-          <img src={listing.hostImgURL}></img>
-          <div className="details-right-host2">
-            <p>{listing.host}</p>
+    <>
+      <GoBackBtn />
+      <div className="details-container">
+        <div className="details-left">
+          <img src={listing.imageURL}></img>
+          <div className="details-left-bottomleft">
+          <p> <span className={listing.category === "MC" ? "mc-color" : "car-color"}>< FaLocationPin /></span> {listing.city}</p>
+          </div>
+          <div className="details-left-bottomright">
+            <p className={listing.category === "MC" ? "mc-bcolor-tran" : "car-bcolor-tran"}>{listing.price}kr /dygn</p>
           </div>
         </div>
-        <div className="details-right-info">
-          <p>Adress:</p>
-          <p>{listing.address}</p>
-          <p>Garage:</p>
-          <p>{listing.description}</p>
-          <p>Pris:</p>
-          <p>{listing.price}kr /dygn</p>
-          <button onClick={saveToLocalStorage} disabled={selectedDays.length === 0}>RESERVERA</button>
+        <div className="details-right">
+          <div className="details-checkboxes">
+            {daysOfWeek.map((day, index) => (
+              <div key={index}>
+                <input type="checkbox" id={`day-${index}`} name={`day-${index}`} onChange={(event) => handleCheckboxChange(event, index)} />
+                <label htmlFor={`day-${index}`}>{day}</label>
+              </div>
+            ))}
+          </div>
+          <div className="details-right-host">
+            <div className="details-right-host-img">
+              <img src={listing.hostImgURL}></img>
+            </div>
+            <div className="details-right-host-name">
+              <p>{listing.host}</p>
+              <div className="detail-stars">
+                <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+              </div>
+            </div>
+          </div>
+          <div className="details-right-info">
+            <p>Adress:</p>
+            <p className="details-info">{listing.address}</p>
+            <p>Garage:</p>
+            <p className="details-info">{listing.description}</p>
+            <p>Pris:</p>
+            <p className="details-info">{listing.price}kr /dygn</p>
+            <div className="details-info-btn">
+              <button onClick={saveToLocalStorage} disabled={selectedDays.length === 0}>RESERVERA</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
