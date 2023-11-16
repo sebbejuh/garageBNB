@@ -34,8 +34,9 @@
     font-size: 12px;
   }
 
-  a:hover {
+  a:hover, div:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 
