@@ -1,17 +1,17 @@
 .navbar-search {
   display: flex;
-  // justify-content: left;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  position: relative;
+  width: 30%;
 
   .navbar-search-static {
     display: flex;
-    // justify-content: left;
     align-items: center;
     border: 2px solid #b0afafb3;
     border-radius: 10px;
-    width: 30%;
+    width: 100%;
     min-width: 175px;
     padding: 3px 0;
     padding-left: 10px;
@@ -34,15 +34,19 @@
     }
 
   }
-  .navbar-search-results{
-    // position: absolute;
-    .test{
+  .navbar-search-results-wrapper {
+    position: absolute;
+    z-index: 1000;
+    top: 45px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    .navbar-search-results{
       display: flex;
-      flex-direction: column;
-      position: absolute;
-      a{
-        // position: sticky;
-      }
+      justify-content: center;
+      padding: 7.5px 0px;
+      border: 2px solid #00000074;
+      
     }
   }
 }
