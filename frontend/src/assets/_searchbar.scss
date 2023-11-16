@@ -44,9 +44,17 @@
     .navbar-search-results{
       display: flex;
       justify-content: center;
-      padding: 7.5px 0px;
       border: 2px solid #00000074;
-      
+      a:hover{
+        text-decoration: underline;
+        background-color: rgb(209, 209, 209);
+      }
+      a{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 7.5px 0px;
+      }
     }
   }
 }
