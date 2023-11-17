@@ -36,10 +36,15 @@ const Bookings = () => {
     fetchOrders();
   }, [authContext]);
 
-  if (error) {  //if there is an error
-    return <div className='error'><h1>Du är inte inloggad</h1></div>
+  if (error) {  //if there is an error fetching orders
+    return (
+      <>
+        <GoBackBtn />
+        <div className='error'><h2>Du är inte inloggad</h2></div>
+      </>
+    )
   }
-  console.log(bookings)
+
   const bookingsAmount = bookings.length;
   return (
     <>
