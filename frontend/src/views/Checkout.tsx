@@ -4,6 +4,8 @@ import { FiMinusCircle } from "react-icons/fi";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import GoBackBtn from "../components/GoBackBtn"
+import { GiPlainCircle } from "react-icons/gi";
+
 
 const Checkout = () => {
   const [listing, setListing] = useState<Listing>(); //using useState hook to create listing state variable as an array
@@ -93,7 +95,14 @@ const Checkout = () => {
     <>
       <GoBackBtn />
       <div className='checkout-container'>
-        <h1>Checkout</h1>
+        <h2 className='checkout-heading'>Checkout (1)</h2>
+        <div className='checkout-icons'>
+          <GiPlainCircle />
+          <hr></hr>
+          <GiPlainCircle />
+          <hr></hr>
+          <GiPlainCircle className="checkout-icons-third"/>
+        </div>
         <div className='checkout-card'>
           <div className="checkout-card-upper">
             <img src={listing.imageURL}></img>
@@ -104,7 +113,7 @@ const Checkout = () => {
               <p className={listing.category === "MC" ? "mc-bcolor-tran" : "car-bcolor-tran"}>{listing.price}kr /dygn</p>
             </div>
             <div className="checkout-card-upper-upperright">
-              <button onClick={removeBooking}><FiMinusCircle /></button>
+              <div className='checkout-upperright-fakebtn' onClick={removeBooking}><FiMinusCircle /></div>
             </div>
           </div>
           <div className="checkout-card-lower">
