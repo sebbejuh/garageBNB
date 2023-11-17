@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { FaLocationPin } from "react-icons/fa6";
+import GoBackBtn from "../components/GoBackBtn"
 
 const Bookings = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
@@ -41,25 +42,31 @@ const Bookings = () => {
   console.log(bookings)
   const bookingsAmount = bookings.length;
   return (
-    <div className="booking-container">
-      <h1>Mina Bokade Parkeringar ({bookingsAmount})</h1>
-      {bookings.map((booking) => (
-        <div className='checkout-card' key={booking._id}>
-          <div className="checkout-card-upper">
-            <img src={booking.listing.imageURL}></img>
-            <div className="checkout-card-upper-bottomleft">
-              <p> <span className={booking.listing.category === "MC" ? "mc-color" : "car-color"}>< FaLocationPin /></span> {booking.listing.city}</p>
+    <>
+      <GoBackBtn />
+      <div className="booking-container">
+        <h2>Mina Bokade Parkeringar ({bookingsAmount})</h2>
+        <div className="booking-container2">
+          {bookings.map((booking) => (
+            <div className='checkout-card booking-card' key={booking._id}>
+              <div className="checkout-card-upper">
+                <img src={booking.listing.imageURL}></img>
+                <div className="checkout-card-upper-bottomleft">
+                  <p> <span className={booking.listing.category === "MC" ? "mc-color" : "car-color"}>< FaLocationPin /></span> {booking.listing.city}</p>
+                </div>
+                <div className="checkout-card-upper-bottomright">
+                  <p className={booking.listing.category === "MC" ? "mc-bcolor-tran" : "car-bcolor-tran"}>{booking.listing.price}kr /dygn</p>
+                </div>
+              </div>
+              <div className="checkout-card-lower">
+                <p>Datum: {booking.dates.join(', ')}</p>
+              </div>
             </div>
-            <div className="checkout-card-upper-bottomright">
-              <p className={booking.listing.category === "MC" ? "mc-bcolor-tran" : "car-bcolor-tran"}>{booking.listing.price}kr /dygn</p>
-            </div>
-          </div>
-          <div className="checkout-card-lower">
-            <p>Datum: {booking.dates.join(', ')}</p>
-          </div>
+          ))}
+
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   )
 }
 
