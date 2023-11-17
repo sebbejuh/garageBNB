@@ -3,6 +3,7 @@ import { FaLocationPin } from "react-icons/fa6";
 import { FiMinusCircle } from "react-icons/fi";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import GoBackBtn from "../components/GoBackBtn"
 
 const Checkout = () => {
   const [listing, setListing] = useState<Listing>(); //using useState hook to create listing state variable as an array
@@ -39,10 +40,20 @@ const Checkout = () => {
 
   }, [parsedData]);
   if (error) {  //if there is an error
-    return <div className='error'><h1>Ingen bokning (0)</h1></div>
+    return (
+      <>
+        <GoBackBtn />
+        <div className='error'><h2>Ingen Bokning (0)</h2></div>
+      </>
+    )
   }
   if (!listing) {
-    return <div className='error'><h1>Laddar...</h1></div>
+    return (
+      <>
+        <GoBackBtn />
+        <div className='error'><h2>Laddar..</h2></div>
+      </>
+    )
   }
 
   const handleBooking = () => {
@@ -79,30 +90,33 @@ const Checkout = () => {
   }
 
   return (
-    <div className='checkout-container'>
-      <h1>Checkout</h1>
-      <div className='checkout-card'>
-        <div className="checkout-card-upper">
-          <img src={listing.imageURL}></img>
-          <div className="checkout-card-upper-bottomleft">
-            <p> <span className={listing.category === "MC" ? "mc-color" : "car-color"}>< FaLocationPin /></span> {listing.city}</p>
+    <>
+      <GoBackBtn />
+      <div className='checkout-container'>
+        <h1>Checkout</h1>
+        <div className='checkout-card'>
+          <div className="checkout-card-upper">
+            <img src={listing.imageURL}></img>
+            <div className="checkout-card-upper-bottomleft">
+              <p> <span className={listing.category === "MC" ? "mc-color" : "car-color"}>< FaLocationPin /></span> {listing.city}</p>
+            </div>
+            <div className="checkout-card-upper-bottomright">
+              <p className={listing.category === "MC" ? "mc-bcolor-tran" : "car-bcolor-tran"}>{listing.price}kr /dygn</p>
+            </div>
+            <div className="checkout-card-upper-upperright">
+              <button onClick={removeBooking}><FiMinusCircle /></button>
+            </div>
           </div>
-          <div className="checkout-card-upper-bottomright">
-            <p className={listing.category === "MC" ? "mc-bcolor-tran" : "car-bcolor-tran"}>{listing.price}kr /dygn</p>
-          </div>
-          <div className="checkout-card-upper-upperright">
-            <button onClick={removeBooking}><FiMinusCircle /></button>
+          <div className="checkout-card-lower">
+            <p>Datum: {parsedData && parsedData.dates.join(', ')}</p>
+            <p>Pris: {totalPrice}kr</p>
           </div>
         </div>
-        <div className="checkout-card-lower">
-          <p>Datum: {parsedData && parsedData.dates.join(', ')}</p>
-          <p>Pris: {totalPrice}kr</p>
+        <div className="checkout-btn-container">
+          <button onClick={handleBooking}>Betala Nu (Totalt: {totalPrice}kr)</button>
         </div>
       </div>
-      <div className="checkout-btn-container">
-        <button onClick={handleBooking}>Betala Nu (Totalt: {totalPrice}kr)</button>
-      </div>
-    </div>
+    </>
 
   )
 }
