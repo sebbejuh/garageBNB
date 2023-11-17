@@ -66,7 +66,9 @@ const ListingDetails = () => {
     return (
       <>
         <GoBackBtn />
-        <div>Listing not found</div>
+        <div className="details-container">
+          <h2>Parkering hittades inte.</h2>
+        </div>
       </>
     )
   }
@@ -74,7 +76,9 @@ const ListingDetails = () => {
     return (
       <>
         <GoBackBtn />
-        <div>Loading...</div>
+        <div className="details-container">
+          <h2>Laddar..</h2>
+        </div>
       </>
     )
   }
