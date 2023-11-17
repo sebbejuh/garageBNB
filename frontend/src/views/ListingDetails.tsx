@@ -45,6 +45,7 @@ const ListingDetails = () => {
     navigate("/checkout");
   };
 
+  //gets listing by id from listingId
   useEffect(() => {
     fetch(`http://localhost:7777/api/listings/${listingId}`)
       .then(res => {
@@ -62,10 +63,20 @@ const ListingDetails = () => {
       });
   }, [listingId]);
   if (error) {
-    return <div>Listing not found</div>
+    return (
+      <>
+        <GoBackBtn />
+        <div>Listing not found</div>
+      </>
+    )
   }
   if (!listing) {
-    return <div>Loading...</div>
+    return (
+      <>
+        <GoBackBtn />
+        <div>Loading...</div>
+      </>
+    )
   }
 
   return (
