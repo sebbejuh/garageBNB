@@ -1,5 +1,6 @@
 //hides mobile versions of divs
-.details-checkboxes-mobile, .details-right-host-mobile{
+.details-checkboxes-mobile,
+.details-right-host-mobile {
   display: none;
 }
 
@@ -145,11 +146,15 @@
 
 //mobile
 @media screen and (max-width: 1000px) {
+
   //changes display to flex and desktop versions to none
-  .details-checkboxes-mobile, .details-right-host-mobile{
+  .details-checkboxes-mobile,
+  .details-right-host-mobile {
     display: flex;
   }
-  .details-checkboxes, .details-right-host{
+
+  .details-checkboxes,
+  .details-right-host {
     display: none;
   }
 
@@ -180,7 +185,7 @@
     width: 19%;
     border-radius: 55px;
     margin-left: 20px;
-  
+
     img {
       display: flex;
       max-width: 85%;
@@ -188,10 +193,10 @@
       border-radius: 100px;
     }
   }
-  
+
   .details-right-host-name-mobile {
     margin-left: 20px;
-  
+
     .detail-stars-mobile {
       font-size: larger;
       padding-top: 10px;
@@ -207,12 +212,13 @@
     padding: 2% 0;
     gap: 5px;
     height: 5%;
-    margin: 5px 0;
-  
+    margin-bottom: 5px;
+    margin-top: 20px;
+
     div {
       display: flex;
       gap: 3px;
-  
+
     }
   }
 
@@ -220,7 +226,7 @@
     width: 100%;
     height: 25%;
 
-    
+
   }
 
   .details-right {
@@ -235,12 +241,13 @@
     margin-top: 1%;
     border-radius: 10px;
     height: auto;
-    p{
+
+    p {
       padding-left: 10px;
       border-radius: 5px;
     }
   }
-  
+
   .details-info-btn {
     padding-bottom: 10px;
   }

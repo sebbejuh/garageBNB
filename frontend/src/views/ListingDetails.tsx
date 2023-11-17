@@ -135,7 +135,7 @@ const ListingDetails = () => {
           </div>
           <div className="details-right-info">
             <p>Adress:</p>
-            <p className="details-info">{listing.address}</p>
+            <p className="details-info">{listing.address}, {listing.city}</p>
             <p>Garage:</p>
             <p className="details-info">{listing.description}</p>
             <p>Pris:</p>
