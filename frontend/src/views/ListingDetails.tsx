@@ -72,10 +72,31 @@ const ListingDetails = () => {
     <>
       <GoBackBtn />
       <div className="details-container">
+
+        <div className="details-checkboxes-mobile">
+          {daysOfWeek.map((day, index) => (
+            <div key={index}>
+              <input type="checkbox" id={`day-${index}`} name={`day-${index}`} onChange={(event) => handleCheckboxChange(event, index)} />
+              <label htmlFor={`day-${index}`}>{day}</label>
+            </div>
+          ))}
+        </div>
+        <div className="details-right-host-mobile">
+          <div className="details-right-host-img-mobile">
+            <img src={listing.hostImgURL}></img>
+          </div>
+          <div className="details-right-host-name-mobile">
+            <p>{listing.host}</p>
+            <div className="detail-stars-mobile">
+              <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+            </div>
+          </div>
+        </div>
+
         <div className="details-left">
           <img src={listing.imageURL}></img>
           <div className="details-left-bottomleft">
-          <p> <span className={listing.category === "MC" ? "mc-color" : "car-color"}>< FaLocationPin /></span> {listing.city}</p>
+            <p> <span className={listing.category === "MC" ? "mc-color" : "car-color"}>< FaLocationPin /></span> {listing.city}</p>
           </div>
           <div className="details-left-bottomright">
             <p className={listing.category === "MC" ? "mc-bcolor-tran" : "car-bcolor-tran"}>{listing.price}kr /dygn</p>
