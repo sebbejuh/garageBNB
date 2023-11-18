@@ -14,6 +14,7 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  //function to handle change in input fields
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRegisterData((prevData) => {
       return {
@@ -23,6 +24,9 @@ const Register = () => {
     });
   };
 
+  //function that takes data from inputs and posts them as JSON in body
+  //checks if passwords in the password inputs match
+  //then updates token in localstorage if register is successful and sends you to homepage
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (registerData.password !== registerData.confirmPassword) {
@@ -36,6 +40,12 @@ const Register = () => {
       },
       body: JSON.stringify(registerData),
     });
+
+    if (!res.ok) {
+      alert(`Error: ${res.status} ${res.statusText}`);
+      return;
+    }
+
     const data = await res.json();
     if (authContext !== null) {
       const { updateToken } = authContext;
@@ -54,7 +64,7 @@ const Register = () => {
         <div className="login-title">
           <h2>REGISTRERA</h2>
         </div>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit} name="register">
           <div className="login-input">
             <label htmlFor="email">E-post:</label>
             <input

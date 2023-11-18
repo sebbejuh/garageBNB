@@ -13,6 +13,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  //function to handle change in input fields
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginData((prevData) => {
       return {
@@ -21,7 +22,8 @@ const Login = () => {
       };
     });
   };
-
+  //function that takes data from inputs and posts them as JSON in body
+  //then updates token in localstorage if login is successful and sends you to homepage
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch("http://localhost:7777/api/users/login", {
@@ -31,6 +33,12 @@ const Login = () => {
       },
       body: JSON.stringify(loginData),
     });
+
+    if (!res.ok) {
+      alert(`Error: ${res.status} ${res.statusText} - Fel användaruppgifter.`);
+      return;
+    }
+
     const data = await res.json();
     if (authContext !== null) {
       const { updateToken } = authContext;
@@ -49,7 +57,7 @@ const Login = () => {
         <div className="login-title">
           <h2>LOGGA IN</h2>
         </div>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit} name="login">
           <div className="login-input">
             <label htmlFor="email">E-post:</label>
             <input
