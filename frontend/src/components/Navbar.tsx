@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({SearchBar}: NavbarProps) => {
+const Navbar = ({ SearchBar }: NavbarProps) => {
   const authContext = useContext(AuthContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Navbar = ({SearchBar}: NavbarProps) => {
     }
   }, [authContext]);
 
-  const handleLogout = () => {
+  const handleLogout = () => {//function to handle logout, sets token to null
     if (authContext !== null) {
       const { updateToken } = authContext;
       updateToken(null);

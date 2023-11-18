@@ -38,10 +38,10 @@ const Footer = () => {
         <div className='footer-login'>
           <AiOutlineUser size={28} />
           {isLoggedIn ? (
-              <div onClick={handleLogout}>Logga ut</div>
-            ) : (
-              <Link to='/login'>Logga in</Link>
-            )}
+            <div onClick={handleLogout}>Logga ut</div>
+          ) : (
+            <Link to='/login'>Logga in</Link>
+          )}
         </div>
       </nav>
     </footer>
