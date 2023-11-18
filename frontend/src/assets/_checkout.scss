@@ -1,14 +1,16 @@
-.checkout-container{
+.checkout-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 370px;
   margin-top: 10vh;
 }
-.checkout-heading{
+
+.checkout-heading {
   font-weight: 100;
 }
-.checkout-icons{
+
+.checkout-icons {
   width: 100%;
   color: #4470B2;
   font-size: 24px;
@@ -17,63 +19,71 @@
   align-items: center;
   margin: 13px;
 
-  hr{
+  hr {
     min-width: 30%;
     border-color: black;
-    
+
   }
-  .checkout-icons-third{
+
+  .checkout-icons-third {
     color: #D9D9D9;
   }
 }
-.checkout-card{
+
+.checkout-card {
   width: 100%;
   background-color: #D9D9D9;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
 }
-.checkout-card-upper{
+
+.checkout-card-upper {
   width: 100%;
   height: 200px;
   position: relative;
   color: white;
   font-size: 13px;
-  img{
+
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
   }
-  .checkout-card-upper-bottomleft{
+
+  .checkout-card-upper-bottomleft {
     position: absolute;
     bottom: 15px;
     left: 16px;
   }
-  .checkout-card-upper-bottomright{
+
+  .checkout-card-upper-bottomright {
     position: absolute;
     bottom: 11.5px;
     right: 16px;
-    p{
+
+    p {
       padding: 5px;
       border-radius: 10px;
     }
   }
-  .checkout-card-upper-upperright{
+
+  .checkout-card-upper-upperright {
     position: absolute;
     top: 16px;
     right: 16px;
     color: #FF1313;
-    .checkout-upperright-fakebtn{
+
+    .checkout-upperright-fakebtn {
       font-size: 20px;
       cursor: pointer;
     }
   }
 }
 
-.checkout-card-lower{
+.checkout-card-lower {
   font-size: 15px;
-  // font-weight: 600;
   background-color: #D9D9D9;
   border-radius: 10px;
   display: flex;
@@ -81,15 +91,18 @@
   align-items: center;
   padding: 10px 0;
   gap: 20px;
-  p{
+
+  p {
     max-width: 60%;
     padding: 0 10px;
   }
 }
-.checkout-btn-container{
+
+.checkout-btn-container {
   margin-top: 20px;
   width: 95%;
-  button{
+
+  button {
     width: 100%;
     font-size: 15px;
     color: white;
@@ -102,7 +115,7 @@
 }
 
 @media screen and (max-width: 376px) {
-  .checkout-container{
+  .checkout-container {
     margin-top: 40px;
     padding: 0 10px;
   }

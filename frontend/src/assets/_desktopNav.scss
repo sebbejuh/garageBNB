@@ -1,40 +1,41 @@
-.desktop-navlinks{
+.desktop-navlinks {
   display: flex;
   justify-content: space-between;
   height: 40px;
-  // z-index: 999;
-  // position: fixed;
-  // top: 50px;
   width: 370px;
   margin-bottom: 60px;
 }
-.desktop-navlinks-car{
+
+.desktop-navlinks-car {
   display: flex;
   background-color: #4470B2;
   color: white;
   width: 50vw;
   align-items: center;
   padding-left: 10px;
-  span{
+
+  span {
     color: white;
     padding-left: 35%;
   }
 }
-.desktop-navlinks-mc{
+
+.desktop-navlinks-mc {
   display: flex;
   background-color: #E37575;
   width: 50vw;
   align-items: center;
   justify-content: right;
   padding-right: 10px;
-  span{
+
+  span {
     padding-right: 35%;
   }
 }
 
 
 @media screen and (max-width: 721px) {
-  .desktop-navlinks{
+  .desktop-navlinks {
     display: none;
   }
 }

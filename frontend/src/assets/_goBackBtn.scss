@@ -1,27 +1,29 @@
-.go-back-btn-container{
+.go-back-btn-container {
   height: 40px;
   z-index: 900;
   position: fixed;
   top: 55px;
   width: 100%;
   display: flex;
-    align-items: center;
+  align-items: center;
   background-color: rgb(255, 255, 255);
 
-  .go-back-btn-fake-btn{
+  .go-back-btn-fake-btn {
     margin-left: 20px;
     display: flex;
     align-items: center;
     max-width: 120px;
     cursor: pointer;
-    svg{
+
+    svg {
       font-size: 34px;
     }
   }
 }
+
 //mobile
 @media screen and (max-width: 722px) {
-  .go-back-btn-container{
+  .go-back-btn-container {
     top: 90px;
   }
 }

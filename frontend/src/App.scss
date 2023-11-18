@@ -41,37 +41,46 @@ body {
   padding-top: 90px;
   padding-bottom: 55px;
 }
+
 a {
   text-decoration: none;
   color: black;
 }
+
 //outer container on pages with listings
-.outer-container{
+.outer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 //colours
-.car-color{
+.car-color {
   color: #4470B2;
 }
-.car-bcolor{
+
+.car-bcolor {
   background-color: #4470B2;
 }
-.car-bcolor-tran{
+
+.car-bcolor-tran {
   background-color: #4470b2b2;
 }
-.mc-color{
+
+.mc-color {
   color: #E37575;
 }
-.mc-bcolor{
+
+.mc-bcolor {
   background-color: #E37575;
 }
-.mc-bcolor-tran{
+
+.mc-bcolor-tran {
   background-color: #e37575b2;
 }
+
 //error class
-.error{
+.error {
   display: flex;
   justify-content: center;
   align-items: center;

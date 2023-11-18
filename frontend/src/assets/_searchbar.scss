@@ -34,6 +34,7 @@
     }
 
   }
+
   .navbar-search-results-wrapper {
     position: absolute;
     z-index: 1000;
@@ -41,15 +42,18 @@
     width: 100%;
     background-color: white;
     border-radius: 10px;
-    .navbar-search-results{
+
+    .navbar-search-results {
       display: flex;
       justify-content: center;
       border: 2px solid #00000074;
-      a:hover{
+
+      a:hover {
         text-decoration: underline;
         background-color: rgb(209, 209, 209);
       }
-      a{
+
+      a {
         display: flex;
         justify-content: center;
         width: 100%;
