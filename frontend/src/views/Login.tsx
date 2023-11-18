@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import GoBackBtn from "../components/GoBackBtn"
 
 const Login = () => {
   const authContext = useContext(AuthContext);
@@ -42,37 +43,42 @@ const Login = () => {
     navigate("/");
   };
   return (
-    <div className="login-container">
-      <div className="login-title">
-        <h1>LOGGA IN</h1>
+    <>
+      <GoBackBtn />
+      <div className="login-container">
+        <div className="login-title">
+          <h2>LOGGA IN</h2>
+        </div>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="login-input">
+            <label htmlFor="email">E-post:</label>
+            <input
+              type="email"
+              placeholder="E-post.."
+              name="email"
+              id="email"
+              value={loginData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="login-input">
+            <label htmlFor="password">Lösenord:</label>
+            <input
+              type="password"
+              placeholder="Lösenord.."
+              name="password"
+              id="password"
+              value={loginData.password}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="login-btn-link">
+            <Link to="/register" className="register-link">Registrera dig</Link>
+            <button className="login-btn">Logga in</button>
+          </div>
+        </form>
       </div>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <div className="login-input">
-          <label htmlFor="email">E-post:</label>
-          <input
-            type="email"
-            placeholder="E-post.."
-            name="email"
-            id="email"
-            value={loginData.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="login-input">
-          <label htmlFor="password">Lösenord:</label>
-          <input
-            type="password"
-            placeholder="Lösenord.."
-            name="password"
-            id="password"
-            value={loginData.password}
-            onChange={handleChange}
-          />
-        </div>
-        <Link to="/register" className="register-link">Registrera dig</Link>
-        <button className="login-btn">Logga in</button>
-      </form>
-    </div>
+    </>
   )
 }
 
