@@ -1,5 +1,9 @@
 //hides mobile versions of divs
-.details-mobile {
+// .details-checkboxes-mobile,
+// .details-right-host-mobile {
+//   display: none;
+// }
+.details-mobile{
   display: none;
 }
 
@@ -21,13 +25,11 @@
   height: 100%;
   position: relative;
   color: white;
-  border-radius: 5px;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 5px;
   }
 
 }
@@ -111,7 +113,7 @@
 .details-right-info {
   margin-top: 4%;
   height: 71%;
-  border-radius: 15px;
+  border-radius: 30px;
   border: 2px solid #b0afafb3;
   display: flex;
   flex-direction: column;
@@ -154,68 +156,23 @@
 @media screen and (max-width: 1000px) {
 
   //changes display to flex and desktop versions to none
-  .details-desktop {
+  // .details-checkboxes-mobile,
+  // .details-right-host-mobile {
+  //   display: flex;
+  // }
+
+  // .details-checkboxes,
+  // .details-right-host {
+  //   display: none;
+  // }
+
+  .details-desktop{
     display: none;
   }
 
-  .details-mobile {
+  .details-mobile{
     display: flex;
-    margin: 10px 0 5px 0;
-  }
-
-  .details-right-host {
-    background-color: rgb(255, 255, 255);
-    align-items: center;
-    border-radius: 10px;
-    height: 13%;
-    width: 100%;
-    border: 1px solid #b0afafb3;
-  }
-
-  .details-right-host-img {
-    background-color: #B8B8B8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-    width: 25%;
-    border-radius: 55px;
-    margin-left: 20px;
-
-    img {
-      display: flex;
-      max-width: 85%;
-      max-height: 85%;
-      border-radius: 100px;
-    }
-  }
-
-  .details-right-host-name {
-    margin-left: 20px;
-
-    .detail-stars {
-      font-size: larger;
-      padding-top: 10px;
-      color: #FFF612;
-    }
-  }
-
-  .details-checkboxes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: small;
-    padding: 2% 0;
-    gap: 5px;
-    height: 5%;
-    margin-bottom: 5px;
-    margin-top: 20px;
-
-    div {
-      display: flex;
-      gap: 3px;
-
-    }
+    margin: 10px 0;
   }
 
   .details-container {
@@ -246,7 +203,6 @@
     margin-top: 1%;
     border-radius: 10px;
     height: auto;
-    border: 1px solid #b0afafb3;
 
     p {
       padding-left: 10px;
