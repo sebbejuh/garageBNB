@@ -8,14 +8,16 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const secretKey = process.env.SECRET_KEY;
+// function that checks if key exists and then creates a new token
 const generateToken = (user) => {
     if (!secretKey) {
         console.error('SECRET_KEY not defined in environment');
         process.exit(1);
     }
-    return jsonwebtoken_1.default.sign({ _id: user._id, email: user.email }, secretKey, { expiresIn: '365d' });
+    return jsonwebtoken_1.default.sign({ _id: user._id, email: user.email }, secretKey, { expiresIn: '1d' }); //creates token
 };
 exports.generateToken = generateToken;
+// function that verifies token
 const verifyToken = (req, res, next) => {
     try {
         if (!secretKey) {

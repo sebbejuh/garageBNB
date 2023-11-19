@@ -8,16 +8,16 @@ import { Types } from 'mongoose';
 dotenv.config();
 
 const secretKey = process.env.SECRET_KEY;
-
+// function that checks if key exists and then creates a new token
 export const generateToken = (user: User) => {
   if (!secretKey) {
     console.error('SECRET_KEY not defined in environment');
     process.exit(1);
   }
 
-  return jwt.sign({ _id: user._id, email: user.email }, secretKey, { expiresIn: '365d' })
+  return jwt.sign({ _id: user._id, email: user.email }, secretKey, { expiresIn: '1d' })//creates token
 }
-
+// function that verifies token
 export const verifyToken = (req: RequestWithUserData, res: Response, next: NextFunction) => {
   try {
     if (!secretKey) {
