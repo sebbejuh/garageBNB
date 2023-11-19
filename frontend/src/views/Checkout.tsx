@@ -8,12 +8,12 @@ import { GiPlainCircle } from "react-icons/gi";
 
 
 const Checkout = () => {
-  const [listing, setListing] = useState<Listing>(); //using useState hook to create listing state variable as an array
-  const [error, setError] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const listingData = localStorage.getItem('listingData');
-  const parsedData = listingData !== null ? JSON.parse(listingData) : null;
-  const authContext = useContext(AuthContext);
+  const [listing, setListing] = useState<Listing>(); //listing state
+  const [error, setError] = useState(false);  //error state, starts false
+  const [totalPrice, setTotalPrice] = useState(0);  //total price state starts at 0
+  const listingData = localStorage.getItem('listingData');  //gets listingData from localstorage
+  const parsedData = listingData !== null ? JSON.parse(listingData) : null; //parses listingData
+  const authContext = useContext(AuthContext);  //gets authContext from AuthContext
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Checkout = () => {
       </>
     )
   }
-
+  //function that checks if user is logged in - then posts booking
   const handleBooking = () => {
     if (!authContext || !authContext.token) {
       setError(true); //just incase
@@ -83,7 +83,7 @@ const Checkout = () => {
         console.error('Error:', error);
       });
   };
-
+  //function that removes listingData from localstorage
   const removeBooking = () => {
     if (parsedData) {
       localStorage.removeItem('listingData');
