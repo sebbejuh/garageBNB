@@ -19,14 +19,12 @@ import Login from "./views/Login"
 import Register from "./views/Register"
 //sass
 import "./App.scss";
-//context provider
-// import { ShopContextProvider } from "./context/CartContext";
 
 const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-      <Navbar SearchBar={<SearchBar />} /> {/* passes component as a prop */}
+        <Navbar SearchBar={<SearchBar />} /> {/*passes component as prop */}
         <MobileNav />
         <main className="container">
           <Routes>
